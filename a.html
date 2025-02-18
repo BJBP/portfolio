@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braggi Jayson Bamberger Plasencia - Portafolio (Bento Style)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* --- Reset & Basic Styles --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted for smaller boxes */
+            gap: 20px;
+            background-color: transparent;
+        }
+
+        /* --- Bento Box Styles --- */
+        .bento-box {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex; /* Use flexbox for internal layout */
+            flex-direction: column; /* Stack content vertically */
+        }
+
+        .bento-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- Header (Large Box) --- */
+        .header-box {
+            grid-column: 1 / -1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header-box h1 {
+            font-size: 2.5em; /* Slightly smaller header */
+            margin-bottom: 0.2em;
+        }
+
+        .header-box p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 0.5em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+      /* --- Section Headings --- */
+        .bento-box h2 {
+           font-size: 1.3em; /* Reduced size */
+           margin-bottom: 0.5em;
+           border-bottom: 2px solid #3498db;
+           padding-bottom: 0.2em;
+           color: #3498db;
+           align-self: flex-start; /* Align to the start of the flex container */
+        }
+
+        /* --- Profile --- */
+        .profile-box p {
+            text-align: justify;
+            color: #444;
+            font-size: 0.95em; /* Slightly smaller font */
+            flex: 1; /* Allow the profile text to grow and fill available space */
+        }
+
+        /* --- Education --- */
+        .education-box {
+            /* No specific styling, uses bento-box defaults */
+        }
+        .education-item {
+            margin-bottom: 1em;
+
+        }
+
+        .education-item h3 {
+            font-size: 1em;
+            margin-bottom: 0.2em;
+        }
+          .education-item > p:first-of-type {
+            font-weight: bold; /* Make the degree/title bold */
+            margin-bottom: 0.1em;
+        }
+
+        .date-range {
+            font-style: italic;
+            color: #777;
+            font-size: 0.8em;
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* --- Experience --- */
+        .experience-box{
+           /* Uses bento-box defaults */
+        }
+
+        .experience-item {
+            margin-bottom: 1.5em; /* More space between experience items */
+
+        }
+
+        .experience-item h3 {
+            font-size: 1em; /* Consistent with education */
+            margin-bottom: 0.2em;
+        }
+
+        .experience-item > p:first-of-type {
+            font-weight: bold; /* Make the job title bold */
+            margin-bottom: 0.1em;
+        }
+        .experience-item ul {
+            margin-top: 0.4em;
+            margin-left: 0em; /* Remove default left margin/padding */
+            padding-left: 1em; /* Use padding for indentation */
+            list-style-type: disc;  /* Use disc bullets for experience details */
+
+        }
+
+        .experience-item li {
+            margin-bottom: 0.2em;
+             font-size: 0.9em; /* Smaller font for details */
+        }
+
+
+        /* --- Skills --- */
+        .skills-box {
+            /* Uses bento-box defaults */
+        }
+
+        .skills-box h3 {
+            margin-top: 1em;
+            margin-bottom: 0.4em;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller grid items */
+            gap: 6px; /* Smaller gap */
+            margin-top: 0.5em;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.1em;
+            font-size: 0.85em; /* Smaller font */
+        }
+
+        /* --- Languages --- */
+        .languages-box{
+           /*Uses bento-box defaults*/
+        }
+        .languages-list{
+            display: flex;
+            flex-direction: column;
+            gap: 0.4em;
+            margin-top: 0.5em;
+        }
+        .languages-list li{
+            font-size: 0.9em;
+        }
+
+        /* --- Responsive adjustments --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller boxes */
+                gap: 10px;
+            }
+
+            .header-box h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bento-box {
+                padding: 15px;
+            }
+
+             .skills-list {
+                  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Even smaller on mobile */
+             }
+        }
+        @media (max-width: 480px) {
+             .header-box h1 {
+                  font-size: 1.8em;
+             }
+
+             .skills-list {
+                  grid-template-columns: 1fr; /* Single column */
+             }
+
+             .container {
+                padding: 10px;
+             }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bento-box header-box">
+            <h1>Braggi Jayson Bamberger Plasencia</h1>
+            <p>ING. INFORMÁTICO</p>
+            <div class="contact-info">
+                <a href="mailto:bambergerplasencia@gmail.com"><i class="fas fa-envelope"></i> bambergerplasencia@gmail.com</a>
+                <a href="https://www.linkedin.com/in/braggi-jayson-bamberger-plasencia" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="http://bjbp.github.io/portfolio/" target="_blank"><i class="fas fa-globe"></i> Portfolio</a>
+                <span><i class="fas fa-map-marker-alt"></i> Trujillo, La Libertad, Peru</span>
+            </div>
+        </div>
+
+        <div class="bento-box profile-box">
+            <h2>Perfil</h2>
+            <p>Creatividad y curiosidad para encontrar diferentes soluciones eficientes a problemas empresariales. Apasionado por la innovación y experimento casos de uso de inteligencia artificial.</p>
+        </div>
+
+        <div class="bento-box education-box">
+            <h2>Educación</h2>
+            <div class="education-item">
+                <h3>Universidad Nacional de Trujillo</h3>
+                <p>Bachillerato</p>
+                <span class="date-range">XX - 2019 - XX - 2024</span>
+            </div>
+        </div>
+
+
+        <div class="bento-box experience-box">
+            <h2>Experiencia Laboral</h2>
+            <div class="experience-item">
+                <h3>Orbiz Trujillo</h3>
+                 <p>ASISTENTE DE TI</p>
+                <span class="date-range">03 - 2023 - 01 - 2025</span>
+                <ul>
+                    <li>Configuración, mantenimiento y seguridad de redes empresariales mediante Mikrotik.</li>
+                    <li>Reduje el tiempo de activación de líneas de 1 hora a 5 minutos.</li>
+                    <li>Permití la copia de seguridad automáticas de la configuración del sistema.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bento-box">
+           <div class="experience-item">
+                <h3>Sedipro UNT</h3>
+                <p>PERSONAL DE TI</p>
+                <span class="date-range">06 - 2024 - 02 - 2025</span>
+                <ul>
+                    <li>Desarrollo y gestión de aplicaciones web con Laravel y bases de datos MySQL.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bento-box">
+             <div class="experience-item">
+                <h3>Independiente</h3>
+                <p>DESARROLLO DE VIDEOJUEGOS</p>
+                <span class="date-range">XX - 2020 - XX - 2021</span>
+                <ul>
+                    <li>Creación de videojuegos interactivos usando Unity para diversas plataformas.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="bento-box skills-box">
+            <h2>Habilidades</h2>
+             <h3>Habilidades Técnicas</h3>
+                <ul class="skills-list">
+                    <li><i class="fab fa-python"></i> Python</li>
+                    <li><i class="fas fa-database"></i> MySQL</li>
+                    <li><i class="fas fa-network-wired"></i> Redes</li>
+                    <li>Mikrotik</li>
+                    <li>Soluciones open source</li>
+                    <li>Integración de chatbots</li>
+                </ul>
+
+            <h3>Habilidades Blandas</h3>
+                <ul class="skills-list">
+                    <li>Innovación</li>
+                    <li>Dependabilidad</li>
+                    <li>Desafíos tecnológicos</li>
+                    <li>Comunicación efectiva</li>
+                    <li>Generosidad</li>
+                </ul>
+        </div>
+
+        <div class="bento-box languages-box">
+                <h2>Idiomas</h2>
+                <ul class="languages-list">
+                    <li>Español - Nativo</li>
+                    <li>Inglés - Intermedio (B1, B2)</li>
+                </ul>
+        </div>
+    </div>
+</body>
+</html>
